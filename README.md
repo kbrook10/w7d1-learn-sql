@@ -1,5 +1,4 @@
 ## Question: (1)
-How many users are there?
 ***Code Example Question(1):*** *How many users are there?*
 ```
 select count(*) from users;
@@ -7,7 +6,6 @@ select count(*) from users;
 Answer: 50
 
 ## Question: (2)
-What are the 5 most expensive items?
 ***Code Example Question(2):*** *What are the 5 most expensive items?*
 ```
 select * from items order by price DESC limit 5;
@@ -21,8 +19,7 @@ id|title|category|description|price
 60|Ergonomic Steel Car|Books & Outdoors|Enterprise-wide secondary firmware|9341
 
 ## Question: (3)
-What's the cheapest book? (Does that change for "category is exactly 'book'" versus "category contains 'book'"?)
-***Code Example Question(3):*** *What's the cheapest book? (Does that change for "category is exactly 'book'" versus "category contains 'book'"?)*
+***Code Example Question(3):*** *What's the cheapest book? (Does that change for "category is exactly 'book'" versus "category contains 'book'?*
 ```
 select category, title, price from items where category like '%book%';
 ```
@@ -42,7 +39,6 @@ Books       Practical Plastic Hat  3056
 Toys & Boo  Awesome Granite Pants  9790
 
 ## Question: (4)
-Who lives at "6439 Zetta Hills, Willmouth, WY"? Do they have another address?
 ***Code Example Question(4):*** *Who lives at "6439 Zetta Hills, Willmouth, WY"? Do they have another address?*
 ```
 select addresses.user_id, addresses.street, addresses.city, addresses.state, users.id, users.first_name, users.last_name from addresses inner join users on addresses.user_id=users.id where street='6439 Zetta Hills';
@@ -58,7 +54,6 @@ user_id     street              city        state       id          first_name  
 40          54369 Wolff Forges  Lake Bryon  CA          40          Corrine     Little   
 
 ## Question: (5)
-Correct Virginie Mitchell's address to "New York, NY, 10108".
 ***Code Example Question(5):*** *Correct Virginie Mitchell's address to "New York, NY, 10108".*
 ```
 select addresses.user_id, addresses.city, addresses.state, addresses.zip, users.id, users.first_name, users.last_name from addresses inner join users on addresses.user_id=users.id where user_id=39;
@@ -76,7 +71,6 @@ Ran this code to update Virginie Mitchell's address to New York, NY 10108, then 
 
 
 ## Question: (6)
-How much would it cost to buy one of each tool?
 ***Code Example Question(6):*** *How much would it cost to buy one of each tool?*
 ```
 select sum(price) as total from items where category like '%tools%';
@@ -87,7 +81,6 @@ total
 46477
 
 ## Question: (7)
-How many total items did we sell?
 ***Code Example Question(7):*** *How many total items did we sell?*
 ```
 select sum(quantity) as items_sold from orders;
@@ -98,7 +91,6 @@ items_sold
 ----------
 2125   
 ## Question: (8)
-How much was spent on books?
 ***Code Example Question(8):*** *How much was spent on books?*
 Answer: 420566
 total_books_sold
@@ -128,7 +120,6 @@ id          item_id     quantity    category    price
 356         98          2           Books       3056
 
 ## Question: (9)
-Simulate buying an item by inserting a User for yourself and an Order for that User.
 ***Code Example Question(9):*** *Simulate buying an item by inserting a User for yourself and an Order for that User.*
 Create User
 ```
