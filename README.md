@@ -169,4 +169,22 @@ select item_id,
 ```
 Answer: Item_id 65 with a qty. total of 72
 
-## Question: (2A)
+## Question: (2A): Grossed the most money?
+```
+select orders.item_id, orders.quantity, items.id, items.price,
+   ...> sum(orders.quantity * items.price) as gross_money
+   ...> from orders
+   ...> inner join items
+   ...> on (orders.item_id = items.id)
+   ...> group by orders.item_id
+   ...> order by gross_money desc
+   ...> limit 5;
+```
+Answer: Item_id 65 with a gross money of 525240
+item_id     quantity    id          price       gross_money
+----------  ----------  ----------  ----------  -----------
+65          10          65          7295        525240     
+41          10          41          8324        449496     
+90          5           90          8895        444750     
+46          5           46          7534        399302     
+45          1           45          7479        329076 
