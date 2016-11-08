@@ -155,3 +155,18 @@ id          user_id     item_id     quantity    created_at
 386         51          99          2           2016-11-07 21:31:08
 387         51          99          2           2016-11-07 21:31:31
 388         51          99          2           2016-11-07 21:35:36
+
+##(Adventure Mode)
+
+## Question: (1A): What item was ordered most often?
+```
+select item_id,
+   ...> sum(quantity) as total
+   ...> from orders
+   ...> group by item_id
+   ...> order by total desc
+   ...> limit 5;
+```
+Answer: Item_id 65 with a qty. total of 72
+
+## Question: (2A)
